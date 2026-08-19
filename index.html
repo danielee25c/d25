@@ -1,25 +1,26 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIK Stockholm — 2026</title>
+
+<title>AIK 2026 | Allsvenskan</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 :root{
     --yellow:#ffd400;
-    --yellow2:#ffb800;
-    --black:#050505;
-    --dark:#0b0b0b;
-    --card:#111;
-    --card2:#171717;
-    --line:#292929;
-    --gray:#929292;
-    --green:#38d996;
-    --red:#ff5757;
+    --yellow2:#ffea70;
+    --black:#030303;
+    --dark:#080808;
+    --dark2:#111;
+    --card:#151515;
+    --card2:#1b1b1b;
+    --line:#2b2b2b;
+    --white:#fff;
+    --gray:#999;
+    --green:#24c77a;
+    --red:#e84d4d;
+    --blue:#4287ff;
 }
 
 *{
@@ -34,80 +35,99 @@ html{
 
 body{
     background:var(--black);
-    color:white;
-    font-family:Inter,Arial,sans-serif;
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-/* =========================
-   NAV
-========================= */
+a{
+    color:inherit;
+}
 
-nav{
+button,
+input,
+select{
+    font:inherit;
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.nav{
     position:fixed;
+    z-index:9999;
     top:0;
     left:0;
     right:0;
-    height:74px;
-    z-index:1000;
+
+    height:72px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 6%;
+    padding:0 5%;
 
-    background:rgba(3,3,3,.88);
+    background:rgba(0,0,0,.94);
     backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,212,0,.35);
+    border-bottom:2px solid var(--yellow);
 }
 
 .logo{
     color:var(--yellow);
-    font-size:32px;
-    font-weight:900;
-    letter-spacing:4px;
+    font-size:31px;
+    font-weight:1000;
+    letter-spacing:5px;
 }
 
-.nav-links{
+.navlinks{
     display:flex;
-    gap:28px;
+    gap:22px;
 }
 
-.nav-links a{
-    color:#ddd;
+.navlinks a{
     text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s;
+    color:#eee;
+    font-size:12px;
+    font-weight:bold;
+    transition:.2s;
 }
 
-.nav-links a:hover{
+.navlinks a:hover{
     color:var(--yellow);
 }
 
-/* =========================
+.mobile-menu{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:25px;
+}
+
+/* ==============================
    HERO
-========================= */
+============================== */
 
 .hero{
-    min-height:780px;
-    margin-top:74px;
+    min-height:760px;
+    margin-top:72px;
 
     display:flex;
     align-items:center;
 
-    padding:90px 7%;
+    padding:80px 7%;
 
     position:relative;
-    overflow:hidden;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.97) 0%,
-            rgba(0,0,0,.75) 45%,
-            rgba(0,0,0,.45) 100%
+            rgba(0,0,0,.98) 0%,
+            rgba(0,0,0,.85) 38%,
+            rgba(0,0,0,.30) 100%
         ),
         url("9120_116014.avif");
 
@@ -115,39 +135,43 @@ nav{
     background-position:center;
 }
 
-.hero::after{
+.hero:after{
     content:"";
+
     position:absolute;
     left:0;
     right:0;
     bottom:0;
-    height:180px;
 
-    background:linear-gradient(
-        transparent,
-        var(--black)
-    );
+    height:160px;
+
+    background:
+        linear-gradient(
+            transparent,
+            var(--black)
+        );
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:850px;
+
+    max-width:900px;
 }
 
-.kicker{
+.eyebrow{
     color:var(--yellow);
-    font-weight:800;
-    font-size:13px;
+    font-size:12px;
     letter-spacing:5px;
-    margin-bottom:22px;
+    font-weight:900;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(70px,11vw,150px);
-    line-height:.82;
-    font-weight:900;
-    letter-spacing:-7px;
+    font-size:clamp(75px,13vw,160px);
+    line-height:.78;
+    letter-spacing:-9px;
+    font-weight:1000;
 }
 
 .hero h1 span{
@@ -156,125 +180,138 @@ nav{
 
 .hero-text{
     max-width:650px;
-    margin-top:30px;
-    color:#c9c9c9;
-    line-height:1.7;
+    color:#ccc;
     font-size:18px;
+    margin-top:30px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:14px;
-    margin-top:35px;
     flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
 }
 
 .btn{
-    display:inline-block;
-    padding:15px 25px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 23px;
+
+    border-radius:5px;
+
     background:var(--yellow);
     color:#000;
+
     text-decoration:none;
-    font-weight:900;
-    border-radius:5px;
-    transition:.25s;
+
+    font-size:12px;
+    font-weight:1000;
+
+    border:1px solid var(--yellow);
+
+    cursor:pointer;
+
+    transition:.2s;
 }
 
 .btn:hover{
     transform:translateY(-3px);
-    background:white;
+    background:#fff;
+    border-color:#fff;
 }
 
-.btn-outline{
+.btn-dark{
     background:transparent;
-    color:white;
-    border:1px solid #777;
+    color:#fff;
+    border-color:#777;
 }
 
-.btn-outline:hover{
-    background:white;
-    color:black;
-}
-
-/* =========================
-   LIVE BAR
-========================= */
-
-.live-bar{
+.btn-dark:hover{
     background:var(--yellow);
     color:#000;
-    padding:13px 7%;
+    border-color:var(--yellow);
+}
+
+/* ==============================
+   LIVE BAR
+============================== */
+
+.livebar{
+    background:var(--yellow);
+    color:#000;
+
+    padding:13px 6%;
 
     display:flex;
     justify-content:center;
-    gap:25px;
     flex-wrap:wrap;
+    gap:28px;
 
-    font-size:13px;
-    font-weight:800;
+    font-size:11px;
+    font-weight:1000;
 }
 
-.live-dot{
-    width:8px;
-    height:8px;
-    display:inline-block;
-    background:#d00;
-    border-radius:50%;
-    margin-right:7px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
+/* ==============================
+   GENERAL
+============================== */
 
 section{
-    padding:95px 7%;
+    padding:90px 6%;
 }
 
 .section-head{
-    margin-bottom:42px;
+    margin-bottom:38px;
 }
 
 .section-head small{
     color:var(--yellow);
-    font-weight:800;
-    letter-spacing:3px;
+    letter-spacing:4px;
+    font-size:10px;
+    font-weight:1000;
 }
 
 .section-head h2{
-    margin-top:8px;
     font-size:46px;
-    font-weight:900;
+    margin-top:8px;
+    line-height:1;
 }
 
 .section-head p{
+    margin-top:12px;
     color:var(--gray);
-    margin-top:10px;
+    max-width:750px;
 }
 
-/* =========================
-   MATCH HERO
-========================= */
+.yellow{
+    color:var(--yellow);
+}
 
-.next{
+/* ==============================
+   DASHBOARD
+============================== */
+
+.dashboard{
     background:
         radial-gradient(
             circle at 50% 0%,
-            #292400,
-            transparent 45%
+            #292300,
+            transparent 55%
         );
 }
 
-.match-card{
-    max-width:1000px;
-    margin:auto;
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
 
-    padding:42px;
-
+.dashboard-main{
     background:
         linear-gradient(
             135deg,
-            #171717,
+            #191919,
             #090909
         );
 
@@ -283,375 +320,700 @@ section{
 
     border-radius:12px;
 
-    box-shadow:0 25px 80px rgba(0,0,0,.45);
+    padding:35px;
 }
 
-.competition{
-    color:var(--yellow);
+.next-title{
     text-align:center;
-    font-size:12px;
-    font-weight:800;
+    color:var(--yellow);
+    font-size:11px;
+    font-weight:1000;
     letter-spacing:3px;
 }
 
-.match-date{
-    color:#888;
+.next-date{
     text-align:center;
-    margin-top:8px;
+    color:#777;
+    margin-top:7px;
 }
 
-.teams{
+.next-teams{
     display:grid;
     grid-template-columns:1fr 100px 1fr;
     align-items:center;
-    gap:30px;
     margin:45px 0;
 }
 
-.team{
+.next-team{
     text-align:center;
-    font-size:28px;
-    font-weight:900;
+    font-size:30px;
+    font-weight:1000;
 }
 
-.team:last-child{
+.next-team.aik{
     color:var(--yellow);
 }
 
 .vs{
     width:70px;
     height:70px;
-    margin:auto;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    margin:auto;
 
     border:2px solid var(--yellow);
     border-radius:50%;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     color:var(--yellow);
-    font-weight:900;
+    font-weight:1000;
 }
 
-.venue{
+.next-info{
     text-align:center;
-    color:#aaa;
-    line-height:1.8;
+    color:#888;
+    font-size:13px;
 }
 
-/* =========================
-   STATS
-========================= */
-
-.stats{
+.dashboard-side{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:15px;
 }
 
-.stat{
+.mini-stat{
     background:var(--card);
     border:1px solid var(--line);
-    padding:28px;
-    border-radius:9px;
+    border-radius:10px;
+    padding:25px;
 }
 
-.stat-number{
+.mini-stat strong{
+    display:block;
     color:var(--yellow);
-    font-size:44px;
-    font-weight:900;
+    font-size:39px;
 }
 
-.stat-title{
-    margin-top:5px;
-    color:#aaa;
-    font-size:13px;
+.mini-stat span{
+    color:#888;
+    font-size:11px;
+    font-weight:bold;
 }
 
-.stat-detail{
-    margin-top:15px;
-    color:#ddd;
-    font-size:13px;
+/* ==============================
+   CARDS
+============================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
 }
 
-/* =========================
-   TABLE
-========================= */
-
-.table-wrap{
-    overflow-x:auto;
-    background:#101010;
+.card{
+    background:var(--card);
     border:1px solid var(--line);
     border-radius:10px;
+    padding:25px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:var(--yellow);
+}
+
+.card-number{
+    color:var(--yellow);
+    font-size:42px;
+    font-weight:1000;
+}
+
+.card-label{
+    color:#888;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+/* ==============================
+   TABLE
+============================== */
+
+.table-wrap{
+    overflow:auto;
+
+    background:var(--card);
+
+    border:1px solid var(--line);
+    border-radius:12px;
 }
 
 table{
     width:100%;
-    min-width:760px;
+    min-width:950px;
     border-collapse:collapse;
 }
 
+thead{
+    background:#0b0b0b;
+}
+
 th{
+    padding:17px 14px;
+
+    color:#777;
+
     text-align:left;
-    padding:17px;
-    color:#888;
-    font-size:12px;
-    text-transform:uppercase;
+
+    font-size:10px;
     letter-spacing:1px;
+
     border-bottom:1px solid var(--line);
 }
 
 td{
-    padding:17px;
+    padding:16px 14px;
+
+    font-size:13px;
+
     border-bottom:1px solid #222;
-    font-size:14px;
 }
 
 tr:hover{
-    background:#191919;
+    background:#1a1a1a;
 }
 
-.aik{
-    background:#242000;
+.aik-row{
+    background:#302900 !important;
     color:var(--yellow);
-    font-weight:800;
+    font-weight:1000;
 }
 
-.position{
-    width:40px;
-    font-weight:900;
+.pos{
+    font-weight:1000;
+    width:35px;
+}
+
+.club{
+    font-weight:bold;
+}
+
+.badge{
+    display:inline-flex;
+    width:25px;
+    height:25px;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-right:8px;
+
+    border-radius:50%;
+
+    background:#242424;
+    color:#fff;
+
+    font-size:8px;
+    font-weight:1000;
 }
 
 .form{
     display:flex;
-    gap:4px;
+    gap:3px;
 }
 
-.form span{
-    width:25px;
-    height:25px;
+.form i{
+    width:22px;
+    height:22px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     border-radius:4px;
-    font-size:10px;
-    font-weight:900;
+
+    color:white;
+    font-size:8px;
+    font-style:normal;
+    font-weight:1000;
 }
 
-.win{
-    background:#147d50;
+.win{background:var(--green);}
+.draw{background:#777;}
+.loss{background:var(--red);}
+
+/* ==============================
+   ZONES
+============================== */
+
+.zone{
+    display:inline-block;
+
+    padding:4px 7px;
+
+    border-radius:4px;
+
+    font-size:8px;
+    font-weight:1000;
 }
 
-.draw{
-    background:#777;
+.zone-euro{
+    background:#2457a6;
 }
 
-.loss{
-    background:#a73737;
+.zone-playoff{
+    background:#9c711c;
 }
 
-/* =========================
-   PLAYERS
-========================= */
-
-.players{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
+.zone-relegation{
+    background:#8b2d2d;
 }
 
-.player{
-    position:relative;
-    overflow:hidden;
+/* ==============================
+   MATCHES
+============================== */
 
-    background:linear-gradient(
-        145deg,
-        #191919,
-        #0c0c0c
-    );
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.search{
+    min-width:250px;
+
+    padding:12px 15px;
+
+    background:#111;
+
+    color:white;
 
     border:1px solid var(--line);
-    border-radius:10px;
+    border-radius:6px;
 
-    transition:.3s;
+    outline:none;
 }
 
-.player:hover{
-    transform:translateY(-7px);
+.search:focus{
     border-color:var(--yellow);
 }
 
-.player-number{
-    height:170px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        radial-gradient(
-            circle,
-            #303030,
-            #0b0b0b
-        );
-
-    color:var(--yellow);
-    font-size:75px;
-    font-weight:900;
-}
-
-.player-info{
-    padding:20px;
-}
-
-.player-info h3{
-    font-size:17px;
-}
-
-.player-position{
-    margin-top:7px;
-    color:var(--yellow);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.player-status{
-    margin-top:15px;
-    padding-top:12px;
-    border-top:1px solid #292929;
-
-    color:#777;
-    font-size:11px;
-}
-
-/* =========================
-   MATCH LIST
-========================= */
-
-.matches{
+.match-list{
     display:grid;
-    gap:12px;
+    gap:10px;
 }
 
 .match{
     display:grid;
-    grid-template-columns:130px 1fr 120px 1fr;
+    grid-template-columns:100px 1fr 110px 1fr 100px;
+
     align-items:center;
 
-    padding:22px;
+    padding:20px;
 
-    background:#111;
+    background:var(--card);
+
     border:1px solid var(--line);
     border-radius:8px;
+
+    transition:.2s;
 }
 
-.match-date-small{
+.match:hover{
+    border-color:#555;
+}
+
+.match-round{
     color:#777;
-    font-size:12px;
+    font-size:10px;
 }
 
-.match-team{
-    font-weight:800;
+.home{
+    text-align:right;
+    font-weight:bold;
 }
 
-.match-score{
+.result{
     text-align:center;
     color:var(--yellow);
-    font-size:20px;
-    font-weight:900;
+    font-size:18px;
+    font-weight:1000;
 }
 
-.match.upcoming{
-    border-left:4px solid var(--yellow);
+.away{
+    font-weight:bold;
 }
 
-/* =========================
-   IMAGE
-========================= */
-
-.image-section{
-    background:#080808;
-    text-align:center;
+.status{
+    text-align:right;
+    color:#777;
+    font-size:10px;
 }
 
-.big-image{
-    width:100%;
-    max-width:1150px;
-    border-radius:12px;
-    border:2px solid var(--yellow);
+/* ==============================
+   PLAYERS
+============================== */
 
-    box-shadow:
-        0 0 80px rgba(255,212,0,.12);
+.player-controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
 }
 
-/* =========================
-   NEWS
-========================= */
+.players{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
 
-.news{
+.player{
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1b1b,
+            #080808
+        );
+
+    border:1px solid var(--line);
+    border-radius:10px;
+
+    transition:.25s;
+}
+
+.player:hover{
+    transform:translateY(-6px);
+    border-color:var(--yellow);
+}
+
+.player-top{
+    height:130px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            #3b3500,
+            #0b0b0b 60%
+        );
+}
+
+.player-number{
+    color:var(--yellow);
+    font-size:58px;
+    font-weight:1000;
+}
+
+.player-position{
+    color:#777;
+    font-size:9px;
+    font-weight:1000;
+}
+
+.player-body{
+    padding:20px;
+}
+
+.player-body h3{
+    font-size:17px;
+}
+
+.player-country{
+    color:var(--yellow);
+    font-size:10px;
+    margin-top:5px;
+}
+
+.player-stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:5px;
+
+    margin-top:18px;
+    padding-top:15px;
+
+    border-top:1px solid #292929;
+}
+
+.pstat strong{
+    display:block;
+    color:#fff;
+    font-size:17px;
+}
+
+.pstat span{
+    color:#666;
+    font-size:8px;
+}
+
+/* ==============================
+   PLAYER STATS TABLE
+============================== */
+
+.stats-table{
+    overflow:auto;
+
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+}
+
+.stats-table table{
+    min-width:800px;
+}
+
+/* ==============================
+   INFO GRID
+============================== */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.info-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px;
+}
+
+.info-icon{
+    font-size:28px;
+    margin-bottom:14px;
+}
+
+.info-box h3{
+    color:var(--yellow);
+    margin-bottom:10px;
+}
+
+.info-box p{
+    color:#999;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ==============================
+   NEWS
+============================== */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
 }
 
 .news-card{
-    background:#111;
+    background:var(--card);
     border:1px solid var(--line);
-    padding:28px;
-    border-radius:9px;
+    border-radius:10px;
+    padding:25px;
 }
 
-.news-tag{
+.news-date{
     color:var(--yellow);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:2px;
+    font-size:10px;
+    font-weight:1000;
 }
 
 .news-card h3{
-    margin:15px 0 10px;
-    font-size:20px;
+    margin:12px 0;
+    font-size:18px;
 }
 
 .news-card p{
     color:#888;
-    line-height:1.6;
-    font-size:14px;
+    font-size:13px;
 }
 
-/* =========================
+/* ==============================
+   HISTORY
+============================== */
+
+.history{
+    background:#080808;
+}
+
+.timeline{
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.timeline:before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+    left:50%;
+
+    width:2px;
+
+    background:var(--yellow);
+}
+
+.timeline-item{
+    width:50%;
+
+    padding:20px 35px;
+
+    position:relative;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+}
+
+.timeline-item:nth-child(odd){
+    text-align:right;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    top:27px;
+
+    width:13px;
+    height:13px;
+
+    background:var(--yellow);
+
+    border-radius:50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-7px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-7px;
+}
+
+.timeline-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:20px;
+    border-radius:9px;
+}
+
+.timeline-card strong{
+    color:var(--yellow);
+}
+
+/* ==============================
+   IMAGE
+============================== */
+
+.image-section{
+    text-align:center;
+}
+
+.main-image{
+    width:100%;
+    max-width:1150px;
+
+    border:2px solid var(--yellow);
+    border-radius:12px;
+
+    box-shadow:
+        0 0 100px rgba(255,212,0,.12);
+}
+
+/* ==============================
+   SOURCES
+============================== */
+
+.sources{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.source{
+    display:block;
+
+    padding:22px;
+
+    background:var(--card);
+
+    border:1px solid var(--line);
+    border-radius:8px;
+
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.source:hover{
+    border-color:var(--yellow);
+}
+
+.source strong{
+    color:var(--yellow);
+}
+
+.source span{
+    display:block;
+    color:#777;
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* ==============================
    FOOTER
-========================= */
+============================== */
 
 footer{
-    padding:55px 7%;
+    padding:60px 6%;
+
     text-align:center;
+
     background:#000;
-    border-top:1px solid #292929;
+
+    border-top:2px solid var(--yellow);
 }
 
 .footer-logo{
     color:var(--yellow);
-    font-size:40px;
-    font-weight:900;
-    letter-spacing:5px;
+
+    font-size:50px;
+    font-weight:1000;
+    letter-spacing:6px;
 }
 
 footer p{
-    margin-top:12px;
     color:#666;
-    font-size:13px;
+    font-size:11px;
+    margin-top:8px;
 }
 
-/* =========================
+/* ==============================
    MOBILE
-========================= */
+============================== */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-    .stats{
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -659,35 +1021,48 @@ footer p{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .news{
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .sources{
         grid-template-columns:1fr;
     }
 }
 
-@media(max-width:650px){
+@media(max-width:700px){
 
-    .nav-links{
+    .navlinks{
         display:none;
     }
 
+    .mobile-menu{
+        display:block;
+    }
+
     section{
-        padding:70px 5%;
+        padding:65px 5%;
     }
 
     .hero{
-        padding:70px 5%;
+        padding:60px 5%;
         min-height:650px;
     }
 
     .hero h1{
-        letter-spacing:-4px;
+        font-size:78px;
+        letter-spacing:-5px;
     }
 
     .section-head h2{
         font-size:35px;
     }
 
-    .stats{
+    .cards{
         grid-template-columns:1fr 1fr;
     }
 
@@ -695,20 +1070,64 @@ footer p{
         grid-template-columns:1fr 1fr;
     }
 
-    .teams{
+    .info-grid{
         grid-template-columns:1fr;
-        gap:18px;
     }
 
-    .vs{
-        width:55px;
-        height:55px;
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .next-teams{
+        grid-template-columns:1fr;
+        gap:20px;
     }
 
     .match{
         grid-template-columns:1fr;
-        gap:10px;
+        gap:8px;
         text-align:center;
+    }
+
+    .home{
+        text-align:center;
+    }
+
+    .status{
+        text-align:center;
+    }
+
+    .timeline:before{
+        left:8px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        margin-left:0;
+        text-align:left;
+        padding-left:35px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:2px;
+        right:auto;
+    }
+}
+
+@media(max-width:450px){
+
+    .players{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:65px;
     }
 }
 </style>
@@ -716,30 +1135,45 @@ footer p{
 
 <body>
 
-<!-- NAVIGATION -->
 
-<nav>
+<!-- ==================================================
+     NAV
+================================================== -->
+
+<nav class="nav">
+
     <div class="logo">AIK</div>
 
-    <div class="nav-links">
-        <a href="#hem">HEM</a>
-        <a href="#match">MATCH</a>
+    <div class="navlinks">
+
+        <a href="#start">START</a>
         <a href="#tabell">TABELL</a>
+        <a href="#matcher">MATCHER</a>
         <a href="#trupp">TRUPP</a>
-        <a href="#resultat">RESULTAT</a>
-        <a href="#nyheter">NYHETER</a>
+        <a href="#statistik">STATISTIK</a>
+        <a href="#serie">ALLSVENSKAN</a>
+        <a href="#historia">HISTORIA</a>
+
     </div>
+
+    <button class="mobile-menu"
+            onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        ☰
+    </button>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- ==================================================
+     HERO
+================================================== -->
 
-<header class="hero" id="hem">
+<header class="hero" id="start">
 
     <div class="hero-content">
 
-        <div class="kicker">
-            STOCKHOLM • SEDAN 1891
+        <div class="eyebrow">
+            AIK FOTBOLL • ALLSVENSKAN 2026
         </div>
 
         <h1>
@@ -748,19 +1182,25 @@ footer p{
         </h1>
 
         <p class="hero-text">
-            En modern AIK-sida med aktuell tabell,
-            matcher, spelartrupp, resultat och nyheter.
-            Svart och gult — hela vägen.
+            En komplett svartgul AIK-portal med tabell,
+            resultat, kommande matcher, spelartrupp,
+            statistik, Allsvenskan-information och AIK-historia.
         </p>
 
         <div class="hero-buttons">
-            <a href="#match" class="btn">
-                NÄSTA MATCH
+
+            <a href="#tabell" class="btn">
+                SE TABELLEN
             </a>
 
-            <a href="#tabell" class="btn btn-outline">
-                TABELLEN
+            <a href="#trupp" class="btn btn-dark">
+                HELA TRUPPEN
             </a>
+
+            <a href="#matcher" class="btn btn-dark">
+                ALLA MATCHER
+            </a>
+
         </div>
 
     </div>
@@ -768,59 +1208,118 @@ footer p{
 </header>
 
 
-<!-- LIVE INFO -->
+<!-- ==================================================
+     UPDATE BAR
+================================================== -->
 
-<div class="live-bar">
-    <span>
-        <span class="live-dot"></span>
-        SENAST UPPDATERAD: 19 AUGUSTI 2026
-    </span>
+<div class="livebar">
 
-    <span>AIK • 3:A I ALLSVENSKAN</span>
+    <span>⚫ AIK • STOCKHOLM</span>
 
-    <span>28 POÄNG</span>
+    <span>🏆 ALLSVENSKAN 2026</span>
+
+    <span>📊 17 MATCHER SPELADE</span>
+
+    <span>🟡 AIK: 28 POÄNG</span>
+
+    <span>🔄 UPPDATERAD 19 AUGUSTI 2026</span>
+
 </div>
 
 
-<!-- NEXT MATCH -->
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
 
-<section class="next" id="match">
+<section class="dashboard">
 
     <div class="section-head">
-        <small>NÄSTA MATCH</small>
-        <h2>Piteå väntar</h2>
-        <p>Svenska Cupen • Herrar</p>
+
+        <small>AIK DASHBOARD</small>
+
+        <h2>Svartgult läge</h2>
+
+        <p>
+            Snabb överblick över AIK:s aktuella säsong.
+        </p>
+
     </div>
 
-    <div class="match-card">
 
-        <div class="competition">
-            SVENSKA CUPEN HERR
-        </div>
+    <div class="dashboard-grid">
 
-        <div class="match-date">
-            TORSDAG 20 AUGUSTI 2026 • 18:30
-        </div>
 
-        <div class="teams">
+        <div class="dashboard-main">
 
-            <div class="team">
-                PITEÅ IF
+            <div class="next-title">
+                NÄSTA ALLSVENSKA MATCH
             </div>
 
-            <div class="vs">
-                VS
+            <div class="next-date">
+                23 augusti 2026 • Omgång 18
             </div>
 
-            <div class="team">
-                AIK
+            <div class="next-teams">
+
+                <div class="next-team aik">
+                    AIK
+                </div>
+
+                <div class="vs">
+                    VS
+                </div>
+
+                <div class="next-team">
+                    MJÄLLBY
+                </div>
+
+            </div>
+
+            <div class="next-info">
+
+                🏟️ Strawberry Arena<br>
+                Stockholm / Solna<br>
+                Allsvenskan
+
             </div>
 
         </div>
 
-        <div class="venue">
-            🏟 LF Arena<br>
-            Piteå
+
+        <div class="dashboard-side">
+
+            <div class="mini-stat">
+
+                <strong>4:a</strong>
+
+                <span>
+                    AIK:S TABELLPLACERING
+                </span>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <strong>28</strong>
+
+                <span>
+                    POÄNG
+                </span>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <strong>25–25</strong>
+
+                <span>
+                    MÅL
+                </span>
+
+            </div>
+
         </div>
 
     </div>
@@ -828,40 +1327,61 @@ footer p{
 </section>
 
 
-<!-- CURRENT STATS -->
+<!-- ==================================================
+     QUICK STATS
+================================================== -->
 
 <section>
 
     <div class="section-head">
-        <small>ALLSVENSKAN 2026</small>
-        <h2>AIK just nu</h2>
-        <p>Efter 17 spelade matcher</p>
+
+        <small>SÄSONG 2026</small>
+
+        <h2>AIK i siffror</h2>
+
     </div>
 
-    <div class="stats">
 
-        <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-title">TABELLPLACERING</div>
-            <div class="stat-detail">Tredje plats</div>
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-number">17</div>
+            <div class="card-label">MATCHER</div>
         </div>
 
-        <div class="stat">
-            <div class="stat-number">28</div>
-            <div class="stat-title">POÄNG</div>
-            <div class="stat-detail">8 vinster • 4 kryss • 5 förluster</div>
+        <div class="card">
+            <div class="card-number">8</div>
+            <div class="card-label">SEGRAR</div>
         </div>
 
-        <div class="stat">
-            <div class="stat-number">25</div>
-            <div class="stat-title">GJORDA MÅL</div>
-            <div class="stat-detail">25 mål framåt</div>
+        <div class="card">
+            <div class="card-number">4</div>
+            <div class="card-label">OAVGJORDA</div>
         </div>
 
-        <div class="stat">
-            <div class="stat-number">25</div>
-            <div class="stat-title">INSLÄPPTA</div>
-            <div class="stat-detail">+/- 0 i målskillnad</div>
+        <div class="card">
+            <div class="card-number">5</div>
+            <div class="card-label">FÖRLUSTER</div>
+        </div>
+
+        <div class="card">
+            <div class="card-number">25</div>
+            <div class="card-label">GJORDA MÅL</div>
+        </div>
+
+        <div class="card">
+            <div class="card-number">25</div>
+            <div class="card-label">INSLÄPPTA MÅL</div>
+        </div>
+
+        <div class="card">
+            <div class="card-number">0</div>
+            <div class="card-label">MÅLSKILLNAD</div>
+        </div>
+
+        <div class="card">
+            <div class="card-number">28</div>
+            <div class="card-label">POÄNG</div>
         </div>
 
     </div>
@@ -869,93 +1389,313 @@ footer p{
 </section>
 
 
-<!-- TABLE -->
+<!-- ==================================================
+     TABLE
+================================================== -->
 
 <section id="tabell">
 
     <div class="section-head">
-        <small>ALLSVENSKAN</small>
+
+        <small>ALLSVENSKAN 2026</small>
+
         <h2>Tabellen</h2>
-        <p>Aktuell tabell för 2026</p>
+
+        <p>
+            16 lag • 30 matcher per lag • 3 poäng för seger.
+            AIK är markerat i gult.
+        </p>
+
     </div>
+
 
     <div class="table-wrap">
 
         <table>
 
             <thead>
+
                 <tr>
+
                     <th>#</th>
-                    <th>Lag</th>
-                    <th>MS</th>
+                    <th>LAG</th>
+                    <th>S</th>
                     <th>V</th>
                     <th>O</th>
                     <th>F</th>
-                    <th>Mål</th>
-                    <th>Poäng</th>
-                    <th>Form</th>
+                    <th>GM</th>
+                    <th>IM</th>
+                    <th>MS</th>
+                    <th>P</th>
+                    <th>FORM</th>
+
                 </tr>
+
             </thead>
+
 
             <tbody>
 
                 <tr>
-                    <td class="position">1</td>
-                    <td><b>IK Sirius</b></td>
+                    <td class="pos">1</td>
+                    <td class="club">IK Sirius</td>
                     <td>17</td>
                     <td>13</td>
                     <td>3</td>
                     <td>1</td>
-                    <td>47–23</td>
+                    <td>47</td>
+                    <td>23</td>
+                    <td>+24</td>
                     <td><b>42</b></td>
-                    <td>—</td>
+                    <td>
+                        <div class="form">
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                        </div>
+                    </td>
                 </tr>
 
+
                 <tr>
-                    <td class="position">2</td>
-                    <td><b>Hammarby</b></td>
+                    <td class="pos">2</td>
+                    <td class="club">Hammarby</td>
                     <td>17</td>
                     <td>10</td>
                     <td>3</td>
                     <td>4</td>
-                    <td>40–15</td>
+                    <td>40</td>
+                    <td>15</td>
+                    <td>+25</td>
                     <td><b>33</b></td>
+                    <td>
+                        <div class="form">
+                            <i class="win">V</i>
+                            <i class="draw">O</i>
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                            <i class="loss">F</i>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="pos">3</td>
+                    <td class="club">BK Häcken</td>
+                    <td>17</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>29</td>
+                    <td>26</td>
+                    <td>+3</td>
+                    <td><b>28</b></td>
                     <td>—</td>
                 </tr>
 
-                <tr class="aik">
-                    <td class="position">3</td>
-                    <td>★ AIK</td>
+
+                <tr class="aik-row">
+                    <td class="pos">4</td>
+                    <td class="club">★ AIK</td>
                     <td>17</td>
                     <td>8</td>
                     <td>4</td>
                     <td>5</td>
-                    <td>25–25</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>0</td>
                     <td><b>28</b></td>
-                    <td>8–4–5</td>
+                    <td>
+                        <div class="form">
+                            <i class="win">V</i>
+                            <i class="win">V</i>
+                            <i class="draw">O</i>
+                            <i class="win">V</i>
+                            <i class="draw">O</i>
+                        </div>
+                    </td>
                 </tr>
 
+
                 <tr>
-                    <td class="position">4</td>
-                    <td>IF Elfsborg</td>
+                    <td>5</td>
+                    <td class="club">IF Elfsborg</td>
                     <td>17</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>4</td>
+                    <td>24</td>
+                    <td>18</td>
+                    <td>+6</td>
+                    <td><b>27</b></td>
                     <td>—</td>
                 </tr>
 
+
                 <tr>
-                    <td class="position">5</td>
-                    <td>BK Häcken</td>
+                    <td>6</td>
+                    <td class="club">Djurgårdens IF</td>
+                    <td>16</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>6</td>
+                    <td>34</td>
+                    <td>19</td>
+                    <td>+15</td>
+                    <td><b>26</b></td>
+                    <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>7</td>
+                    <td class="club">Malmö FF</td>
                     <td>17</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>7</td>
+                    <td>32</td>
+                    <td>27</td>
+                    <td>+5</td>
+                    <td><b>26</b></td>
                     <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>8</td>
+                    <td class="club">Västerås SK</td>
+                    <td>17</td>
+                    <td>7</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>25</td>
+                    <td>32</td>
+                    <td>-7</td>
+                    <td><b>25</b></td>
                     <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>9</td>
+                    <td class="club">GAIS</td>
+                    <td>17</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>21</td>
+                    <td>16</td>
+                    <td>+5</td>
+                    <td><b>23</b></td>
                     <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>10</td>
+                    <td class="club">IF Brommapojkarna</td>
+                    <td>17</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>25</td>
+                    <td>27</td>
+                    <td>-2</td>
+                    <td><b>21</b></td>
                     <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>11</td>
+                    <td class="club">Mjällby AIF</td>
+                    <td>16</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>24</td>
+                    <td>23</td>
+                    <td>+1</td>
+                    <td><b>20</b></td>
                     <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>12</td>
+                    <td class="club">IFK Göteborg</td>
+                    <td>17</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>22</td>
+                    <td>38</td>
+                    <td>-16</td>
+                    <td><b>19</b></td>
+                    <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>13</td>
+                    <td class="club">Kalmar FF</td>
+                    <td>17</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>21</td>
+                    <td>28</td>
+                    <td>-7</td>
+                    <td><b>18</b></td>
+                    <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>14</td>
+                    <td class="club">Degerfors IF</td>
+                    <td>17</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>17</td>
+                    <td>27</td>
+                    <td>-10</td>
+                    <td><b>16</b></td>
+                    <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>15</td>
+                    <td class="club">Örgryte IS</td>
+                    <td>17</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>21</td>
+                    <td>40</td>
+                    <td>-19</td>
+                    <td><b>13</b></td>
+                    <td>—</td>
+                </tr>
+
+
+                <tr>
+                    <td>16</td>
+                    <td class="club">Halmstads BK</td>
+                    <td>17</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>11</td>
+                    <td>34</td>
+                    <td>-23</td>
+                    <td><b>7</b></td>
                     <td>—</td>
                 </tr>
 
@@ -965,207 +1705,829 @@ footer p{
 
     </div>
 
-    <p style="
-        margin-top:15px;
-        color:#666;
-        font-size:12px;
-    ">
-        Tabelluppgifterna är kontrollerade mot Allsvenskans officiella
-        statistik.
-    </p>
+</section>
+
+
+<!-- ==================================================
+     AIK MATCHER
+================================================== -->
+
+<section id="matcher">
+
+    <div class="section-head">
+
+        <small>AIK 2026</small>
+
+        <h2>Matcher & resultat</h2>
+
+        <p>
+            Spelade matcher visas med slutresultat.
+            Kommande matcher visas utan resultat.
+        </p>
+
+    </div>
+
+
+    <div class="controls">
+
+        <input
+            class="search"
+            id="matchSearch"
+            type="text"
+            placeholder="Sök motståndare..."
+            onkeyup="filterMatches()"
+        >
+
+    </div>
+
+
+    <div class="match-list" id="matchList">
+
+
+        <div class="match">
+            <div class="match-round">OMG 1</div>
+            <div class="home">AIK</div>
+            <div class="result">1–0</div>
+            <div class="away">Halmstads BK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 2</div>
+            <div class="home">IF Brommapojkarna</div>
+            <div class="result">1–2</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 3</div>
+            <div class="home">AIK</div>
+            <div class="result">1–1</div>
+            <div class="away">Kalmar FF</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 4</div>
+            <div class="home">Degerfors IF</div>
+            <div class="result">0–2</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 5</div>
+            <div class="home">AIK</div>
+            <div class="result">0–1</div>
+            <div class="away">Malmö FF</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 6</div>
+            <div class="home">IF Elfsborg</div>
+            <div class="result">1–1</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 7</div>
+            <div class="home">AIK</div>
+            <div class="result">2–4</div>
+            <div class="away">Djurgårdens IF</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 8</div>
+            <div class="home">Västerås SK</div>
+            <div class="result">1–1</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 9</div>
+            <div class="home">Hammarby</div>
+            <div class="result">1–2</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 10</div>
+            <div class="home">AIK</div>
+            <div class="result">0–3</div>
+            <div class="away">IK Sirius</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 11</div>
+            <div class="home">IFK Göteborg</div>
+            <div class="result">1–2</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 12</div>
+            <div class="home">Mjällby AIF</div>
+            <div class="result">1–2</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 13</div>
+            <div class="home">AIK</div>
+            <div class="result">2–0</div>
+            <div class="away">GAIS</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 14</div>
+            <div class="home">BK Häcken</div>
+            <div class="result">0–0</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 15</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">Örgryte IS</div>
+            <div class="status">KOMMANDE</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 16</div>
+            <div class="home">Örgryte IS</div>
+            <div class="result">3–4</div>
+            <div class="away">AIK</div>
+            <div class="status">SPELAAD</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 17</div>
+            <div class="home">Djurgårdens IF</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">KOMMANDE / KONTROLLERA</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 18</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">Mjällby AIF</div>
+            <div class="status">23 AUG</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 19</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">Hammarby</div>
+            <div class="status">30 AUG</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 20</div>
+            <div class="home">Malmö FF</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">SEP</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 21</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">Västerås SK</div>
+            <div class="status">SEP</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 22</div>
+            <div class="home">Halmstads BK</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">SEP</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 23</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">IF Brommapojkarna</div>
+            <div class="status">OKT</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 24</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">IFK Göteborg</div>
+            <div class="status">OKT</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 25</div>
+            <div class="home">IK Sirius</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">25 OKT</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 26</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">IF Elfsborg</div>
+            <div class="status">28 OKT</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 27</div>
+            <div class="home">GAIS</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">1 NOV</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 28</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">BK Häcken</div>
+            <div class="status">8 NOV</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 29</div>
+            <div class="home">AIK</div>
+            <div class="result">—</div>
+            <div class="away">Degerfors IF</div>
+            <div class="status">22 NOV</div>
+        </div>
+
+
+        <div class="match">
+            <div class="match-round">OMG 30</div>
+            <div class="home">Kalmar FF</div>
+            <div class="result">—</div>
+            <div class="away">AIK</div>
+            <div class="status">29 NOV</div>
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<!-- PLAYERS -->
+<!-- ==================================================
+     TRUPP
+================================================== -->
 
 <section id="trupp">
 
     <div class="section-head">
-        <small>HERRLAGET 2026</small>
+
+        <small>AIK HERRAR 2026</small>
+
         <h2>Spelartruppen</h2>
-        <p>AIK:s aktuella herrtrupp</p>
+
+        <p>
+            Aktuell herrtrupp enligt AIK Fotbolls officiella
+            truppsida.
+        </p>
+
     </div>
 
-    <div class="players">
 
-        <div class="player">
-            <div class="player-number">15</div>
-            <div class="player-info">
+    <div class="player-controls">
+
+        <input
+            id="playerSearch"
+            class="search"
+            placeholder="Sök spelare..."
+            onkeyup="filterPlayers()"
+        >
+
+        <select
+            id="positionFilter"
+            class="search"
+            onchange="filterPlayers()"
+        >
+
+            <option value="all">
+                Alla positioner
+            </option>
+
+            <option value="Målvakt">
+                Målvakter
+            </option>
+
+            <option value="Försvarare">
+                Försvarare
+            </option>
+
+            <option value="Mittfältare">
+                Mittfältare
+            </option>
+
+            <option value="Anfallare">
+                Anfallare
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="players" id="players">
+
+
+        <!-- MÅLVAKTER -->
+
+        <div class="player" data-position="Målvakt">
+            <div class="player-top">
+                <div class="player-number">15</div>
+                <div class="player-position">MÅLVAKT</div>
+            </div>
+            <div class="player-body">
                 <h3>Kristoffer Nordfeldt</h3>
-                <div class="player-position">MÅLVAKT</div>
-                <div class="player-status">#15 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>15</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MV</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">30</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Målvakt">
+            <div class="player-top">
+                <div class="player-number">30</div>
+                <div class="player-position">MÅLVAKT</div>
+            </div>
+            <div class="player-body">
                 <h3>Kalle Joelsson</h3>
-                <div class="player-position">MÅLVAKT</div>
-                <div class="player-status">#30 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>30</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MV</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">40</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Målvakt">
+            <div class="player-top">
+                <div class="player-number">40</div>
+                <div class="player-position">MÅLVAKT</div>
+            </div>
+            <div class="player-body">
                 <h3>Norton de Carvalho</h3>
-                <div class="player-position">MÅLVAKT</div>
-                <div class="player-status">#40 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>40</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MV</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">2</div>
-            <div class="player-info">
+
+        <!-- FÖRSVARARE -->
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">2</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Eskil Edh</h3>
-                <div class="player-position">FÖRSVARARE</div>
-                <div class="player-status">#2 • AIK 2026</div>
+                <div class="player-country">🇳🇴 Norge</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>2</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">4</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">4</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Sotirios Papagiannopoulos</h3>
-                <div class="player-position">FÖRSVARARE</div>
-                <div class="player-status">#4 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>4</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">5</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">5</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Lukas Bergquist</h3>
-                <div class="player-position">FÖRSVARARE</div>
-                <div class="player-status">#5 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>5</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">12</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">12</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Charlie Pavey</h3>
-                <div class="player-position">FÖRSVARARE</div>
-                <div class="player-status">#12 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>12</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">17</div>
-            <div class="player-info">
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">14</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Fredrik Nissen</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>14</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">17</div>
+                <div class="player-position">FÖRSVARARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Mads Thychosen</h3>
+                <div class="player-country">🇩🇰 Danmark</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>17</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Försvarare">
+            <div class="player-top">
+                <div class="player-number">25</div>
                 <div class="player-position">FÖRSVARARE</div>
-                <div class="player-status">#17 • AIK 2026</div>
+            </div>
+            <div class="player-body">
+                <h3>Ibrahim Cissé</h3>
+                <div class="player-country">🇨🇮 Elfenbenskusten</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>25</strong><span>NR</span></div>
+                    <div class="pstat"><strong>DEF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">6</div>
-            <div class="player-info">
+
+        <!-- MITTFÄLTARE -->
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">6</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
                 <h3>Martin Ellingsen</h3>
+                <div class="player-country">🇳🇴 Norge</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>6</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">7</div>
                 <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#6 • AIK 2026</div>
             </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">8</div>
-            <div class="player-info">
-                <h3>Johan Hove</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#8 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">11</div>
-            <div class="player-info">
-                <h3>Victor Andersson</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#11 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">18</div>
-            <div class="player-info">
-                <h3>Abdihakim Ali</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#18 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">19</div>
-            <div class="player-info">
-                <h3>Dino Beširović</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#19 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">21</div>
-            <div class="player-info">
-                <h3>Stanley Wilson</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#21 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">45</div>
-            <div class="player-info">
-                <h3>Taha Ayari</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#45 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">46</div>
-            <div class="player-info">
-                <h3>Yannick Geiger</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#46 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">16</div>
-            <div class="player-info">
-                <h3>Sixten Gustafsson</h3>
-                <div class="player-position">ANFALLARE</div>
-                <div class="player-status">#16 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">29</div>
-            <div class="player-info">
-                <h3>Kevin Filling</h3>
-                <div class="player-position">ANFALLARE</div>
-                <div class="player-status">#29 • AIK 2026</div>
-            </div>
-        </div>
-
-        <div class="player">
-            <div class="player-number">7</div>
-            <div class="player-info">
+            <div class="player-body">
                 <h3>Amel Mujanic</h3>
-                <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#7 • AIK 2026</div>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>7</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
-        <div class="player">
-            <div class="player-number">22</div>
-            <div class="player-info">
-                <h3>Adrian Helm</h3>
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">8</div>
                 <div class="player-position">MITTFÄLTARE</div>
-                <div class="player-status">#22 • AIK 2026</div>
+            </div>
+            <div class="player-body">
+                <h3>Johan Hove</h3>
+                <div class="player-country">🇳🇴 Norge</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>8</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">11</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Victor Andersson</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>11</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">18</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Abdihakim Ali</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>18</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">19</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Dino Beširović</h3>
+                <div class="player-country">🇧🇦 Bosnien</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>19</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">21</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Stanley Wilson</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>21</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">22</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Adrian Helm</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>22</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">24</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Andreas Redkin</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>24</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">28</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Linus Järeteg</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>28</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">45</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Taha Ayari</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>45</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">46</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Yannick Geiger</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>46</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Mittfältare">
+            <div class="player-top">
+                <div class="player-number">48</div>
+                <div class="player-position">MITTFÄLTARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Axel Kouame</h3>
+                <div class="player-country">🇨🇮 Elfenbenskusten</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>48</strong><span>NR</span></div>
+                    <div class="pstat"><strong>MITT</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ANFALLARE -->
+
+        <div class="player" data-position="Anfallare">
+            <div class="player-top">
+                <div class="player-number">16</div>
+                <div class="player-position">ANFALLARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Sixten Gustafsson</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>16</strong><span>NR</span></div>
+                    <div class="pstat"><strong>ANF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Anfallare">
+            <div class="player-top">
+                <div class="player-number">29</div>
+                <div class="player-position">ANFALLARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Kevin Filling</h3>
+                <div class="player-country">🇸🇪 Sverige</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>29</strong><span>NR</span></div>
+                    <div class="pstat"><strong>ANF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="player" data-position="Anfallare">
+            <div class="player-top">
+                <div class="player-number">—</div>
+                <div class="player-position">ANFALLARE</div>
+            </div>
+            <div class="player-body">
+                <h3>Henry Atola</h3>
+                <div class="player-country">🇰🇪 Kenya</div>
+                <div class="player-stats">
+                    <div class="pstat"><strong>—</strong><span>NR</span></div>
+                    <div class="pstat"><strong>ANF</strong><span>ROLL</span></div>
+                    <div class="pstat"><strong>AIK</strong><span>KLUBB</span></div>
+                </div>
             </div>
         </div>
 
@@ -1174,53 +2536,45 @@ footer p{
 </section>
 
 
-<!-- RESULTS -->
+<!-- ==================================================
+     UTLÅNADE
+================================================== -->
 
-<section id="resultat">
+<section>
 
     <div class="section-head">
-        <small>SENASTE MATCHER</small>
-        <h2>Resultat</h2>
-        <p>AIK:s senaste matcher</p>
+
+        <small>TRUPPSTATUS</small>
+
+        <h2>Utlånade spelare</h2>
+
+        <p>
+            Spelare som AIK:s officiella truppsida anger som utlånade.
+        </p>
+
     </div>
 
-    <div class="matches">
 
-        <div class="match">
-            <div class="match-date-small">
-                16 AUG<br>ALLSVENSKAN
-            </div>
+    <div class="cards">
 
-            <div class="match-team">
-                Djurgården
-            </div>
-
-            <div class="match-score">
-                1–3
-            </div>
-
-            <div class="match-team">
-                AIK
-            </div>
+        <div class="card">
+            <div class="card-number">01</div>
+            <div class="card-label">AARON STOCH RYDELL</div>
         </div>
 
+        <div class="card">
+            <div class="card-number">02</div>
+            <div class="card-label">KAZPER KARLSSON</div>
+        </div>
 
-        <div class="match">
-            <div class="match-date-small">
-                8 AUG<br>ALLSVENSKAN
-            </div>
+        <div class="card">
+            <div class="card-number">03</div>
+            <div class="card-label">WILMER OLOFSSON</div>
+        </div>
 
-            <div class="match-team">
-                Örgryte IS
-            </div>
-
-            <div class="match-score">
-                3–4
-            </div>
-
-            <div class="match-team">
-                AIK
-            </div>
+        <div class="card">
+            <div class="card-number">04</div>
+            <div class="card-label">EMMANUEL GONO</div>
         </div>
 
     </div>
@@ -1228,78 +2582,547 @@ footer p{
 </section>
 
 
-<!-- IMAGE -->
+<!-- ==================================================
+     STATISTIK
+================================================== -->
+
+<section id="statistik">
+
+    <div class="section-head">
+
+        <small>ALLSVENSKAN 2026</small>
+
+        <h2>Skytteliga & statistik</h2>
+
+        <p>
+            Statistiksektion för seriens främsta målskyttar
+            och framspelare.
+        </p>
+
+    </div>
+
+
+    <div class="stats-table">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>SPELARE</th>
+                    <th>LAG</th>
+                    <th>MATCHER</th>
+                    <th>MÅL</th>
+                    <th>ASSIST</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td><b>Robbie Ure</b></td>
+                    <td>IK Sirius</td>
+                    <td>15</td>
+                    <td class="yellow">15</td>
+                    <td>2</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><b>Isak Bjerkebo</b></td>
+                    <td>IK Sirius</td>
+                    <td>—</td>
+                    <td class="yellow">12</td>
+                    <td>8</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><b>Kristian Lien</b></td>
+                    <td>Djurgårdens IF</td>
+                    <td>—</td>
+                    <td class="yellow">11</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><b>Erik Botheim</b></td>
+                    <td>Malmö FF</td>
+                    <td>17</td>
+                    <td class="yellow">10</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><b>Paulos Abraham</b></td>
+                    <td>Hammarby</td>
+                    <td>—</td>
+                    <td class="yellow">9</td>
+                    <td>4</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     ALLSVENSKAN INFO
+================================================== -->
+
+<section id="serie">
+
+    <div class="section-head">
+
+        <small>SVERIGES HÖGSTA SERIE</small>
+
+        <h2>Om Allsvenskan</h2>
+
+        <p>
+            Allt du behöver veta om serien.
+        </p>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-box">
+            <div class="info-icon">🏆</div>
+            <h3>Sveriges högsta serie</h3>
+            <p>
+                Allsvenskan är Sveriges högsta nationella
+                herrserie i fotboll.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">👥</div>
+            <h3>16 lag</h3>
+            <p>
+                Serien består av 16 lag.
+                Varje lag möter varje motståndare hemma
+                och borta.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">⚽</div>
+            <h3>30 matcher</h3>
+            <p>
+                Ett lag spelar 30 seriematcher under
+                en komplett säsong.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">🥇</div>
+            <h3>3 poäng</h3>
+            <p>
+                Seger ger tre poäng, oavgjort en poäng
+                och förlust noll poäng.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">📊</div>
+            <h3>Målskillnad</h3>
+            <p>
+                Målskillnaden räknas genom gjorda mål
+                minus insläppta mål och används som
+                särskiljning i tabellen.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">🌍</div>
+            <h3>Europaspel</h3>
+            <p>
+                Höga placeringar kan ge vägen till
+                kvalificering för UEFA:s klubbtävlingar.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">⬇️</div>
+            <h3>Nedflyttning</h3>
+            <p>
+                Lag i botten av tabellen kan flyttas ned
+                eller få kvala beroende på placering.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">📅</div>
+            <h3>Säsongen 2026</h3>
+            <p>
+                2026 års serie innehåller 30 omgångar
+                och totalt 240 matcher.
+            </p>
+        </div>
+
+
+        <div class="info-box">
+            <div class="info-icon">🇸🇪</div>
+            <h3>Svenska mästaren</h3>
+            <p>
+                Serieettan blir svensk mästare.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     AIK INFO
+================================================== -->
+
+<section>
+
+    <div class="section-head">
+
+        <small>AIK FOTBOLL</small>
+
+        <h2>Klubben</h2>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-box">
+
+            <div class="info-icon">🟡</div>
+
+            <h3>Grundad 1891</h3>
+
+            <p>
+                AIK grundades 1891 och är en av Sveriges
+                mest klassiska idrottsföreningar.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="info-icon">🏟️</div>
+
+            <h3>Strawberry Arena</h3>
+
+            <p>
+                AIK:s herrlag spelar sina hemmamatcher
+                på Strawberry Arena i Solna.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="info-icon">👔</div>
+
+            <h3>Chefstränare</h3>
+
+            <p>
+                José Riveiro är chefstränare för AIK:s herrlag
+                under 2026.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     HISTORY
+================================================== -->
+
+<section id="historia" class="history">
+
+    <div class="section-head">
+
+        <small>AIK HISTORIA</small>
+
+        <h2>Historiska ögonblick</h2>
+
+        <p>
+            Ett urval av viktiga delar i AIK:s fotbollshistoria.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <strong>1891</strong>
+
+                <p>
+                    AIK grundas i Stockholm.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <strong>Allsvenskan</strong>
+
+                <p>
+                    AIK blir en etablerad kraft i svensk
+                    elitfotboll.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <strong>6 SM-guld</strong>
+
+                <p>
+                    AIK har sex allsvenska mästerskap enligt
+                    Allsvenskans historiska sammanställning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <strong>2026</strong>
+
+                <p>
+                    AIK spelar återigen i Allsvenskan och
+                    satsar på att etablera sig i toppen.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DIN BILD
+================================================== -->
 
 <section class="image-section">
 
     <div class="section-head">
+
         <small>AIK</small>
-        <h2>Din bild</h2>
-        <p>9120_116014.avif</p>
+
+        <h2>Svart & gult</h2>
+
+        <p>
+            Din uppladdade bild används som huvudbild.
+        </p>
+
     </div>
+
 
     <img
         src="9120_116014.avif"
-        alt="AIK"
-        class="big-image"
+        class="main-image"
+        alt="AIK 2026"
     >
 
 </section>
 
 
-<!-- NEWS -->
+<!-- ==================================================
+     NEWS
+================================================== -->
 
-<section id="nyheter">
+<section>
 
     <div class="section-head">
-        <small>UPPDATERINGAR</small>
-        <h2>AIK just nu</h2>
-        <p>Det viktigaste inför nästa match</p>
+
+        <small>SENASTE</small>
+
+        <h2>AIK-nyheter</h2>
+
+        <p>
+            Exempel på nyheter från den aktuella säsongen.
+        </p>
+
     </div>
 
-    <div class="news">
+
+    <div class="news-grid">
+
 
         <article class="news-card">
-            <div class="news-tag">16 AUGUSTI 2026</div>
 
-            <h3>Derbyseger mot Djurgården</h3>
+            <div class="news-date">
+                3 AUGUSTI 2026
+            </div>
+
+            <h3>
+                Biljetterna släppta till hemmaderbyt
+                mot Hammarby
+            </h3>
 
             <p>
-                AIK vann Stockholmsderbyt på 3Arena
-                med 3–1 och tog tre viktiga poäng.
+                AIK möter Hammarby hemma på Strawberry Arena
+                i det allsvenska derbyt.
             </p>
+
         </article>
 
 
         <article class="news-card">
-            <div class="news-tag">20 AUGUSTI 2026</div>
 
-            <h3>Piteå väntar i Svenska Cupen</h3>
+            <div class="news-date">
+                1 AUGUSTI 2026
+            </div>
+
+            <h3>
+                Diogo Tomas till AIK Fotboll
+            </h3>
 
             <p>
-                Nästa match är borta mot Piteå IF.
-                Avspark är 18:30 på LF Arena.
+                AIK presenterade den finländske försvararen
+                Diogo Tomas för resten av säsongen.
             </p>
+
         </article>
 
 
         <article class="news-card">
-            <div class="news-tag">30 AUGUSTI 2026</div>
 
-            <h3>Hammarby väntar i derbyt</h3>
+            <div class="news-date">
+                27 JULI 2026
+            </div>
+
+            <h3>
+                AIK spelade 0–0 mot BK Häcken
+            </h3>
 
             <p>
-                Nästa allsvenska hemmaderby är AIK
-                mot Hammarby på Strawberry Arena.
+                AIK tog en poäng på bortaplan mot
+                BK Häcken.
             </p>
+
         </article>
+
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- ==================================================
+     SOURCES
+================================================== -->
+
+<section>
+
+    <div class="section-head">
+
+        <small>KÄLLOR</small>
+
+        <h2>Kontrollera information</h2>
+
+        <p>
+            För liveuppdateringar bör du kontrollera
+            de officiella sidorna.
+        </p>
+
+    </div>
+
+
+    <div class="sources">
+
+
+        <a
+            class="source"
+            href="https://www.aikfotboll.se/herrar/truppen"
+            target="_blank"
+        >
+            <strong>AIK Fotboll</strong>
+            <span>Officiell herrtrupp</span>
+        </a>
+
+
+        <a
+            class="source"
+            href="https://allsvenskan.se/tabell"
+            target="_blank"
+        >
+            <strong>Allsvenskan</strong>
+            <span>Officiell tabell</span>
+        </a>
+
+
+        <a
+            class="source"
+            href="https://allsvenskan.se/matcher"
+            target="_blank"
+        >
+            <strong>Allsvenskan Matcher</strong>
+            <span>Officiellt matchprogram</span>
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
@@ -1308,15 +3131,112 @@ footer p{
     </div>
 
     <p>
-        Stockholm • Svart & Gult • Sedan 1891
+        AIK 2026 • Allsvenskan
     </p>
 
     <p>
-        Fansida • 2026
+        Fansida – inte AIK Fotbolls officiella webbplats.
+    </p>
+
+    <p>
+        Senast kontrollerad: 19 augusti 2026
     </p>
 
 </footer>
 
+
+<script>
+
+/* ==========================================
+   MATCH SEARCH
+========================================== */
+
+function filterMatches(){
+
+    const search =
+        document
+        .getElementById("matchSearch")
+        .value
+        .toLowerCase();
+
+    const matches =
+        document.querySelectorAll(".match");
+
+    matches.forEach(match => {
+
+        const text =
+            match.innerText.toLowerCase();
+
+        if(text.includes(search)){
+            match.style.display = "grid";
+        }else{
+            match.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   PLAYER SEARCH
+========================================== */
+
+function filterPlayers(){
+
+    const search =
+        document
+        .getElementById("playerSearch")
+        .value
+        .toLowerCase();
+
+    const position =
+        document
+        .getElementById("positionFilter")
+        .value;
+
+    const players =
+        document.querySelectorAll(".player");
+
+    players.forEach(player => {
+
+        const text =
+            player.innerText.toLowerCase();
+
+        const playerPosition =
+            player.dataset.position;
+
+        const matchesSearch =
+            text.includes(search);
+
+        const matchesPosition =
+            position === "all" ||
+            playerPosition === position;
+
+        if(matchesSearch && matchesPosition){
+
+            player.style.display = "";
+
+        }else{
+
+            player.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   CURRENT YEAR
+========================================== */
+
+console.log(
+    "AIK 2026 sida laddad."
+);
+
+</script>
+
 </body>
 </html>
-```
